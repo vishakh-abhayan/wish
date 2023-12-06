@@ -6,13 +6,17 @@ body {
   background-color: #00bbf9;
 }
 .birthdayCard {
-  position: relative;
+  position: absolute;
   width: 250px;
   height: 350px;
   cursor: pointer;
   transform-style: preserve-3d;
   transform: perspective(2500px);
   transition: 4s;
+}
+#confetti {
+  width: 100%;
+  height: 100vh;
 }
 
 .birthdayCard:hover {
