@@ -14,9 +14,15 @@ body {
   transform: perspective(2500px);
   transition: 4s;
 }
-#confetti {
+
+.confetti {
+  display: none;
   width: 100%;
   height: 100vh;
+}
+
+.birthdayCard:hover .cursor {
+  display: none;
 }
 
 .birthdayCard:hover {
@@ -334,4 +340,143 @@ p {
   background-color: #c85000;
   box-shadow: rgba(0, 0, 0, 0.06) 0 2px 4px;
   transform: translateY(0);
+}
+
+/* cursor form codepen */
+
+.cursor {
+  perspective: 1000px;
+  transform-origin: bottom right;
+  position: absolute;
+  left: 50%;
+  top: 200px;
+  width: 30px;
+  height: 30px;
+  z-index: 20;
+  pointer-events: none;
+  animation: translate_l2b 2s infinite;
+}
+
+@keyframes translate_l2b {
+  0% {
+    transform: translate(-3px, 4px);
+  }
+  20% {
+    transform: translate(0px, 0px);
+  }
+  80% {
+    transform: translate(-3px, 4px);
+  }
+
+  96% {
+    transform: translate(-3px, 4px);
+  }
+  100% {
+    transform: translate(-3px, 4px);
+  }
+}
+
+.cursor:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -8px;
+  top: -8px;
+  width: 26px;
+  height: 26px;
+  border: 1px solid rgb(170, 135, 186);
+  border-radius: 50%;
+  z-index: 4;
+  animation: wave_l2b 2s infinite;
+}
+
+@keyframes wave_l2b {
+  0% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+  5% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  6% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  44% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  45% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  60% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0.7;
+  }
+}
+
+.cursor:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -15px;
+  top: -15px;
+  width: 40px;
+  height: 40px;
+  border: 1px solid rgb(219, 215, 215);
+  border-radius: 50%;
+  z-index: 4;
+  animation: wave2_l2b 2s infinite;
+}
+
+@keyframes wave2_l2b {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  25% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  26% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(0);
+    opacity: 1;
+  }
+  90% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+#click_l2b {
+  position: relative;
+  animation: click_l2b 2s infinite;
+  z-index: 5;
+  stroke-width: 2;
+  stroke-dasharray: 10 5;
+  fill: rgba(120, 67, 144, 0.43);
+}
+
+@keyframes click_l2b {
+  0% {
+    transform: skew(0deg) translateX(0px) scaleY(0.9);
+  }
+  50% {
+    transform: skew(-6deg) translateX(3px) scaleY(1);
+  }
+  100% {
+    transform: skew(0deg) translateX(0px) scaleY(0.9);
+  }
 }

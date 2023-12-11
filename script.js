@@ -24,3 +24,15 @@ document.addEventListener("DOMContentLoaded", function () {
     document.getElementById("to").innerText = toName;
   }
 });
+
+document
+  .querySelector(".birthdayCard")
+  .addEventListener("mouseenter", function () {
+    document.querySelector(".confetti").style.display = "block";
+  });
+
+document
+  .querySelector(".birthdayCard")
+  .addEventListener("mouseleave", function () {
+    document.querySelector(".confetti").style.display = "none";
+  });
