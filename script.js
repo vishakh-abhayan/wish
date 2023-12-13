@@ -1,7 +1,3 @@
-function openWishForm() {
-  // Handle sending wishes here (e.g., show a form, send data to a server, etc.)
-}
-
 // Function to get URL parameters
 function getParameterByName(name, url) {
   if (!url) url = window.location.href;
@@ -14,15 +10,55 @@ function getParameterByName(name, url) {
 }
 
 // Update card with names from URL parameters
+// document.addEventListener("DOMContentLoaded", function () {
+//   var fromName = getParameterByName("from");
+//   var toName = getParameterByName("to");
+
+//   // Update the card with names
+//   if (fromName && toName) {
+//     document.getElementById("from").innerText = fromName;
+//     document.getElementById("to").innerText = toName;
+//   }
+// });
+
 document.addEventListener("DOMContentLoaded", function () {
   var fromName = getParameterByName("from");
   var toName = getParameterByName("to");
+  var modal = document.getElementById("modal");
 
-  // Update the card with names
-  if (fromName && toName) {
+  if (!fromName || !toName) {
+    modal.style.display = "block";
+  } else {
     document.getElementById("from").innerText = fromName;
     document.getElementById("to").innerText = toName;
   }
+
+  // Close modal logic
+  var span = document.getElementsByClassName("close")[0];
+  span.onclick = function () {
+    modal.style.display = "none";
+  };
+
+  // Form submission to generate URL
+  document.getElementById("wishForm").onsubmit = function (event) {
+    event.preventDefault();
+    var from = document.getElementById("fromName").value;
+    var to = document.getElementById("toName").value;
+    var generatedUrl =
+      window.location.href +
+      "?from=" +
+      encodeURIComponent(from) +
+      "&to=" +
+      encodeURIComponent(to);
+    document.getElementById("generatedUrl").value = generatedUrl;
+  };
+
+  // Copy URL button
+  document.getElementById("copyButton").onclick = function () {
+    var copyText = document.getElementById("generatedUrl");
+    copyText.select();
+    document.execCommand("copy");
+  };
 });
 
 document
