@@ -35,7 +35,7 @@
           <h3 class="toyou">to you!</h3>
         </div>
         <div class="wishes">
-          <p>Dear <span id="to">Name</span> ,</p>
+          <p>Dear <span id="to">Name</span>,</p>
           <p>
             Happy birthday!! I hope your day is filled with lots of love and
             laughter! May all of your birthday wishes come true.
@@ -63,10 +63,25 @@
         </svg>
       </div>
     </div>
-
-    <!-- <div class="shareButton">
-      <button class="button-5" onclick="openWishForm()">Create Wish</button>
-    </div> -->
+    <!-- Modal -->
+    <div id="modal" class="modal" style="display: none">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <form id="wishForm">
+          <label for="fromName">From:</label>
+          <input type="text" id="fromName" name="fromName" /><br /><br />
+          <label for="toName">To:</label>
+          <input type="text" id="toName" name="toName" /><br /><br />
+          <input type="submit" value="Generate URL" />
+        </form>
+        <br />
+        <div>
+          <label for="generatedUrl">Your URL:</label>
+          <input type="text" id="generatedUrl" readonly />
+          <button id="copyButton">Copy URL</button>
+        </div>
+      </div>
+    </div>
   </body>
   <script src="script.js" defer></script>
   <script src="confetti.js" defer></script>
